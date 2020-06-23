@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.main-navigation-bar {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+.navbar-style {
+    text-transform: uppercase;
+}
+
+.logo {
+    height: 200px;
+}
+
+.main-menu li a {
+    color: black;
+    font-size: 1.5em;
+}
+
+.main-menu li a:hover {
+    background: black;
+    color: blanchedalmond;
+
+}
+
+.icon-bar {
+    background: black;
+}
+
+.main-menu {
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+}
+
+#micon {
+    text-align: center;
+}
+
+.main-logo {
+    text-align: center;
+}
+
+.logo {
+    width: 100px;
+    height: 150px;
+
+}
+
+#logo_text {
+    text-align: center;
+    font-size: 50px;
+    color: black;
+    text-decoration: none;
+}
+
+
+
+/*-- Slider --*/
+
+.image-slider {
+    margin: 0;
+    padding: 0;
+}
+
+#slider {
+    overflow: hidden;
+}
+
+.slider-caption {
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    margin-top: 160px;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.slider-caption h1 {
+    text-shadow: 1px 1px #777;
+    font-size: 48px;
+    padding-bottom: 10px;
+    font-weight: 500;
+    color: black;
+    text-transform: uppercase;
+}
+
+.slider-caption p {
+    font-size: 18px;
+    font-weight: 300;
+    color: silver;
+    line-height: 15px;
+}
+
+.slider-caption a {
+    margin-top: 20px;
+    text-decoration: none;
+    display: inline-block;
+    background-color: red;
+    width: 200px;
+    height: 40px;
+    text-align: center;
+    color: silver;
+    line-height: 40px;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/*-- End Slider --*/
+
+/*-- Footer --*/
+.footer {
+    background-color: black;
+    height: 60px;
+
+}
+
+#bthouse {
+    color: silver;
+}
+
+#offers {
+    color: silver;
+}
+
+#history {
+    color: silver;
+}
+
+.f_container {
+    text-align: center;
+    color: silver;
+
+}
+
+.f_para {
+    margin-top: 20px;
+}
+
+/*-- Footer --*/
+
+
+/*-- Menu Page --*/
+#menu_img {
+    width: 150px;
+    height: 100px;
+}
+
+/*-- Menu Page --*/
