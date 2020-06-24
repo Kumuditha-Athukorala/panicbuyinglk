@@ -17,10 +17,25 @@
     <!--Main CSS-->
     <link rel="stylesheet" type="text/css" href="static/css/main.css">
 
-</head> 
+</head>
 <body>
-	<%@include file="menubar.jsp" %>
-	<%@include file="slider.jsp" %>
+	<%@include file="menubar.jsp"%>
+	<%@include file="slider.jsp"%>
+	<br>
+	<div id="search-bar" class="input-group">
+		<input class="form-control border-secondary py-2" type="search"
+			value="search">
+		<div class="input-group-append">
+			<button class="btn btn-outline-secondary" type="button">
+				<i class="fa fa-search"></i>
+			</button>
+		</div>
+	</div>
+	<hr/>
+	<nav id="category-bar" class="navbar navbar-expand-lg navbar-dark bg-dark">	
+		<a href="#" class="navbar-brand">Categories</a>
+	</nav>
+
 </body>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

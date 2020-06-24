@@ -1,8 +1,19 @@
+
+/*-- Main Page --*/
 * {
     margin: 0;
     padding: 0;
 }
 
+#search-bar{
+	padding: 0 15px;
+}
+
+#category-bar {
+	margin: 0 20px;
+}
+
+/*
 .main-navigation-bar {
     margin: 0;
     padding: 0;
@@ -59,7 +70,7 @@
     text-decoration: none;
 }
 
-
+*/
 
 /*-- Slider --*/
 
@@ -143,13 +154,4 @@
     margin-top: 20px;
 }
 
-/*-- Footer --*/
 
-
-/*-- Menu Page --*/
-#menu_img {
-    width: 150px;
-    height: 100px;
-}
-
-/*-- Menu Page --*/

@@ -17,7 +17,7 @@
 					<div class="slider-caption">
 						<h1>Ice-cream Menus</h1>
 						<p>
-							Bt HOUSE serve you delicious Ice-Cream Meals also. <br> <br>All
+							BT HOUSE serve you delicious Ice-Cream Meals also. <br> <br>All
 							You Need Is Ice-Cream
 						</p>
 						<a href="/ourMenu">More Details</a>
@@ -31,7 +31,7 @@
 							The Difference.
 						</p>
 						<a href="/customer_registration">Get Ready</a>
-					</div> <img src="static/images/slide3.jpg" alt="kkkkkkkkkkk" />
+					</div> <img src="static/images/slide3.jpg" alt="k" />
 				</li>
 			</ul>
 		</div>
