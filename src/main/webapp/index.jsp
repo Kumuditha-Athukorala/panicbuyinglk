@@ -82,7 +82,11 @@
 		<div class="col-sm-10"></div>
 		<div class="col-sm-1"></div>
 	</div>
-
+	<div id="contact-us" class="row">
+		<div class="col-sm-1"></div>
+		<div class="col-sm-10"></div>
+		<div class="col-sm-1"></div>
+	</div>
 </body>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
