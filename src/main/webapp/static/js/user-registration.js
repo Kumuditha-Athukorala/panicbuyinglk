@@ -85,3 +85,8 @@ function alphanumeric(input) {
     return /^[a-zA-Z-,]+(\s{0,1}[a-zA-Z-, ])*$/.test(input)
 }
 
+
+function cancelRegisterForm() {
+    alert("Do You Want To Cancel The Registration?");
+    window.location.href = "index";
+}
