@@ -22,11 +22,11 @@
 #about-us{
 	margin: 0;
 	padding: 0;
+	text-align: center;
 }
 
-#contact-us{
-	margin: 0;
-	padding: 0;
+#footer-section{
+	padding-top: 17px;
 }
 
 /*
