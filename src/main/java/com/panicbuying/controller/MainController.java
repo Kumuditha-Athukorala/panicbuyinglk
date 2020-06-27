@@ -6,16 +6,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MainController {
 	
-	@RequestMapping("/")
+	@RequestMapping("/index")
 	public String welcome() {
 		System.out.println("indexxxxxxxxx");
 		return "index.jsp";
 	}
 	
-	@RequestMapping("/addValues")
+	@RequestMapping("/register")
 	public String add() {
-		System.out.println("addition");
-		return "display.jsp";
+		System.out.println("register");
+		return "register.jsp";
 	}
 	
 

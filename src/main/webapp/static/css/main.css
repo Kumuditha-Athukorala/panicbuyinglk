@@ -25,6 +25,10 @@
 	text-align: center;
 }
 
+#about-us p{
+	font-size: 15px;
+}
+
 #footer-section{
 	padding-top: 17px;
 }
