@@ -53,4 +53,5 @@
 <script src="static/js/main.js" type="text/javascript"></script>
 <script src="static/js/plugins.js" type="text/javascript"></script>
 
+<script src="static/js/user-registration.js" type="text/javascript"></script>
 </html>
