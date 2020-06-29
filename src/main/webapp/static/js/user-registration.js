@@ -58,10 +58,46 @@ function checkCustomerRegistration() {
             "conpassword": conpswd
                         
         }    
-        console.log("done");
+        $.ajax({
+            type: "POST",
+            url: "checkEmail",
+            data: regiseterData,
+            success: function (result) {
+            	console.log(result);
+                if (result == "0") {
+                	
+                	console.log("email checked..!!")
+                    registerCustomer(regiseterData);
+                	
+                } else {
+                    document.getElementById("register-message").innerHTML = "Email is already existed...!";
+                }
+
+            }
+        });
         
     }
     
+}
+
+function registerCustomer(regiseterData) {
+
+    $.ajax({
+        type: "POST",
+        url: "registerCustomer",
+        data: regiseterData,
+        success: function (result) {
+
+            if (result == "0") {
+                alert("You Have Successfully Registerd...!!!");
+                window.location.href = "index";
+            } else {
+                alert("User Registration is not Success...!");
+            }
+
+        }
+    });
+
 }
 
 

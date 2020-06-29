@@ -29,7 +29,7 @@
 	<%@include file="menubar.jsp"%>
 
 	
-		<div class="row">
+		<div class="row" style="margin: 0; padding: 0;">
 			<div class="col-sm-4"></div>
     <div class="col-sm-4">
         <h2 style="text-align: center;">Register with PanicBuying-LK</h2>
