@@ -47,59 +47,41 @@ function checkCustomerRegistration() {
         document.getElementById("register-message").innerHTML = "Passwords are not matching...!";
         return false;
     } else {
-        regiseterData = {
-            "firstName": fname,
-            "lastName": lname,
-            "gender": gender,
-            "phone": phone,
-            "address": address,
-            "email": email,
-            "password": password,
-            "conpassword": conpswd
-                        
-        }    
+    	
+        var regiseterData = {};
+        regiseterData["firstName"] = fname;
+        regiseterData["lastName"] = lname;
+        
+        /*
+         * regiseterData["gender"]  = gender;
+        regiseterData["phone"]= phone;
+        regiseterData["address"] = address;
+        regiseterData["email"] = email;
+        regiseterData["password"] = password;
+        regiseterData["conpassword"] = conpswd;
+        */
+        console.log(fname);
+        console.log(lname);
+        
         $.ajax({
-            type: "POST",
-            url: "checkEmail",
-            data: regiseterData,
-            success: function (result) {
-            	console.log(result);
-                if (result == "0") {
-                	
-                	console.log("email checked..!!")
-                    registerCustomer(regiseterData);
-                	
-                } else {
-                    document.getElementById("register-message").innerHTML = "Email is already existed...!";
-                }
-
+            contentType: 'application/json',
+            url: 'registerCustomer',
+            type: 'POST',
+            dataType: 'json',
+            data: JSON.stringify(regiseterData),
+            success: function(response) {
+                console.log("success");
+            },
+            error: function() {
+                console.log("error");
             }
         });
+        
+
         
     }
     
 }
-
-function registerCustomer(regiseterData) {
-
-    $.ajax({
-        type: "POST",
-        url: "registerCustomer",
-        data: regiseterData,
-        success: function (result) {
-
-            if (result == "0") {
-                alert("You Have Successfully Registerd...!!!");
-                window.location.href = "index";
-            } else {
-                alert("User Registration is not Success...!");
-            }
-
-        }
-    });
-
-}
-
 
 function validatePhoneNumber(phone) {
     var phoneno = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;

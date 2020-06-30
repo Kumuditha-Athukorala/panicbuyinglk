@@ -33,7 +33,7 @@
 			<div class="col-sm-4"></div>
     <div class="col-sm-4">
         <h2 style="text-align: center;">Register with PanicBuying-LK</h2>
-        <form method="POST">
+        <form>
             <div class="form-group">
                 <label for="fname">First Name:</label>
                 <input type="text" class="form-control" id="fname" placeholder="Enter First Name" name="fname" required>
