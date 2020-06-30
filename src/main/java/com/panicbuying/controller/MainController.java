@@ -32,6 +32,7 @@ public class MainController {
 	public String registerCustomer(@RequestBody RegisterData registerData) {
 	
 		System.out.println(registerData.getFirstName()+ " " + registerData.getLastName());
+		System.out.println(registerData.getEmail()+ " " + registerData.getPassword());
 		System.out.println("customer registered..!!");		
 		return "0";
 	}

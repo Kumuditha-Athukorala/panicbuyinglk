@@ -51,17 +51,13 @@ function checkCustomerRegistration() {
         var regiseterData = {};
         regiseterData["firstName"] = fname;
         regiseterData["lastName"] = lname;
-        
-        /*
-         * regiseterData["gender"]  = gender;
+        regiseterData["gender"]  = gender;
         regiseterData["phone"]= phone;
         regiseterData["address"] = address;
         regiseterData["email"] = email;
         regiseterData["password"] = password;
         regiseterData["conpassword"] = conpswd;
-        */
-        console.log(fname);
-        console.log(lname);
+
         
         $.ajax({
             contentType: 'application/json',
