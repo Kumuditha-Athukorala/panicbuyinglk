@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.panicbuying.dao.RegisterData;
+import com.panicbuying.pojo.RegisterData;
 
 
 
@@ -30,6 +30,9 @@ public class MainController {
 	@RequestMapping(value = "/registerCustomer", method = RequestMethod.POST)
 	@ResponseBody
 	public String registerCustomer(@RequestBody RegisterData registerData) {
+		
+		// Email verification process is remaining.
+		// User registration process is remaining.
 	
 		System.out.println(registerData.getFirstName()+ " " + registerData.getLastName());
 		System.out.println(registerData.getEmail()+ " " + registerData.getPassword());

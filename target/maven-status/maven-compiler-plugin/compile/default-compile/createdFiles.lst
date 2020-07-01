@@ -1,0 +1,5 @@
+com\panicbuying\entity\User.class
+com\panicbuying\pojo\RegisterData.class
+com\panicbuying\config\AppInitializer.class
+com\panicbuying\entity\UserType.class
+com\panicbuying\config\AppConfig.class
