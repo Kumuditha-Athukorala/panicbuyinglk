@@ -26,8 +26,8 @@
 
 </head>
 <body>
+	
 	<%@include file="menubar.jsp"%>
-
 	
 		<div class="row" style="margin: 0; padding: 0;">
 			<div class="col-sm-4"></div>
@@ -86,7 +86,6 @@
     <div class="col-sm-4"> </div>
 		</div>
 	
-
 	<%@include file="footer.jsp"%>
 </body>
 

@@ -24,14 +24,12 @@
 </head>
 <body>
 
-
 	<%@include file="menubar.jsp"%>
 	<%@include file="slider.jsp"%>
 	<%@include file="searchbar.jsp"%>
 	<%@include file="products.jsp"%>
 	<%@include file="about-contactus.jsp"%>
 	<%@include file="footer.jsp"%>
-
 
 </body>
 

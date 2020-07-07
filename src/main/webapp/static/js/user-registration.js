@@ -58,21 +58,7 @@ function checkCustomerRegistration() {
         regiseterData["password"] = password;
         regiseterData["conpassword"] = conpswd;
 
-        
-        $.ajax({
-            contentType: 'application/json',
-            url: 'registerCustomer',
-            type: 'POST',
-            dataType: 'json',
-            data: JSON.stringify(regiseterData),
-            success: function(response) {
-                console.log("success");
-            },
-            error: function() {
-                console.log("error");
-            }
-        });
-        
+
 
         
     }
