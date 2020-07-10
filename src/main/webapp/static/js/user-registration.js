@@ -46,24 +46,37 @@ function checkCustomerRegistration() {
     } else if (password != conpswd) {
         document.getElementById("register-message").innerHTML = "Passwords are not matching...!";
         return false;
-    } else {
+    } else {  
+    	    	
+        var registerData = {        		
+        		"firstName":fname,
+        		"lastName":lname,
+        		"gender":gender,
+        		"phone":phone,
+        		"address":address,
+        		"email":email,
+        		"password":password,
+        		"conpassword":conpswd        		
+        }
+
+    	$.ajax({
+    		type : "POST",
+    		contentType : "application/json",
+    		url : "registerUser",
+    		data : JSON.stringify(registerData),
+    		dataType : 'json',				
+    		success : function(data) {
+    			console.log(data);
+    		}
+    	});
     	
-        var regiseterData = {};
-        regiseterData["firstName"] = fname;
-        regiseterData["lastName"] = lname;
-        regiseterData["gender"]  = gender;
-        regiseterData["phone"]= phone;
-        regiseterData["address"] = address;
-        regiseterData["email"] = email;
-        regiseterData["password"] = password;
-        regiseterData["conpassword"] = conpswd;
-
-
-
-        
+    	
+               
     }
     
 }
+
+
 
 function validatePhoneNumber(phone) {
     var phoneno = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;

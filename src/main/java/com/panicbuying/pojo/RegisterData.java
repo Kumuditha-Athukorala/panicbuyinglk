@@ -18,24 +18,10 @@ public class RegisterData {
 
 	private String conpassword;
 
+	
 	public RegisterData() {
 		super();
-	}	
-	
-
-	public RegisterData(String firstName, String lastName, String gender, String phone, String address, String email,
-			String password, String conpassword) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.gender = gender;
-		this.phone = phone;
-		this.address = address;
-		this.email = email;
-		this.password = password;
-		this.conpassword = conpassword;
-	}
-
+	}		
 
 
 	public String getFirstName() {

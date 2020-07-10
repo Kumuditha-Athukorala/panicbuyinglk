@@ -1,0 +1,5 @@
+com\panicbuying\config\AppInicializer.class
+com\panicbuying\config\PanicbuyinglkConfig.class
+com\panicbuying\pojo\RegisterData.class
+com\panicbuying\controller\UserController.class
+com\panicbuying\controller\MainController.class
