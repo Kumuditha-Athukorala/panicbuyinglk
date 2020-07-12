@@ -65,9 +65,10 @@ function checkCustomerRegistration() {
     		url : "registerUser",
     		data : JSON.stringify(registerData),
     		dataType : 'json',				
-    		success : function(data) {
-    			console.log(data);
-    		}
+    		success : function(response) {
+    			window.location.href = "/panicbuyinglk/register";
+    		}    			
+    		
     	});
     	
     	

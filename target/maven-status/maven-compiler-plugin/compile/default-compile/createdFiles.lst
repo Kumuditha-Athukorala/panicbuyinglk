@@ -1,5 +1,10 @@
-com\panicbuying\config\AppInicializer.class
+com\panicbuying\entity\User.class
 com\panicbuying\config\PanicbuyinglkConfig.class
 com\panicbuying\pojo\RegisterData.class
 com\panicbuying\controller\UserController.class
+com\panicbuying\repository\UserRepository.class
+com\panicbuying\entity\UserType.class
+com\panicbuying\config\AppInicializer.class
+com\panicbuying\repository\UserTypeRepository.class
+com\panicbuying\service\UserTypeService.class
 com\panicbuying\controller\MainController.class

@@ -1,5 +1,10 @@
 D:\eclips_web_projects\panicbuyinglk\src\main\java\com\panicbuying\controller\UserController.java
+D:\eclips_web_projects\panicbuyinglk\src\main\java\com\panicbuying\repository\UserTypeRepository.java
 D:\eclips_web_projects\panicbuyinglk\src\main\java\com\panicbuying\config\AppInicializer.java
 D:\eclips_web_projects\panicbuyinglk\src\main\java\com\panicbuying\config\PanicbuyinglkConfig.java
+D:\eclips_web_projects\panicbuyinglk\src\main\java\com\panicbuying\repository\UserRepository.java
+D:\eclips_web_projects\panicbuyinglk\src\main\java\com\panicbuying\entity\User.java
 D:\eclips_web_projects\panicbuyinglk\src\main\java\com\panicbuying\controller\MainController.java
+D:\eclips_web_projects\panicbuyinglk\src\main\java\com\panicbuying\entity\UserType.java
 D:\eclips_web_projects\panicbuyinglk\src\main\java\com\panicbuying\pojo\RegisterData.java
+D:\eclips_web_projects\panicbuyinglk\src\main\java\com\panicbuying\service\UserTypeService.java
