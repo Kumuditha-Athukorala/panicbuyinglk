@@ -17,5 +17,6 @@ public class UserTypeService {
 	public List<UserType> getAllUserTypes(){
 		return userTypeRepository.findAll();
 	}
+	
 
 }

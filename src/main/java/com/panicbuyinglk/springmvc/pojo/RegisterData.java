@@ -7,6 +7,8 @@ public class RegisterData {
 	private String lastName;
 
 	private String gender;
+	
+	private String utype;
 
 	private String phone;
 
@@ -47,6 +49,15 @@ public class RegisterData {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+	
+	public String getUtype() {
+		return utype;
+	}
+
+	public void setUtype(String utype) {
+		this.utype = utype;
+	}
+
 
 	public String getPhone() {
 		return phone;

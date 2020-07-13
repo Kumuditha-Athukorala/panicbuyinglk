@@ -51,6 +51,15 @@
                     <option value="Female">Female</option>
                 </select>
             </div>
+            
+            <div class="form-group">
+                <label for="usertype">User Type:</label>
+                <select class="form-control" id="sel2" name="usertype" required>
+                    <option value="Customer">Customer</option>
+                    <option value="Seller">Seller</option>
+                </select>
+            </div>
+            
 
             <div class="form-group">
                 <label for="cnumber">Contact Number:</label>

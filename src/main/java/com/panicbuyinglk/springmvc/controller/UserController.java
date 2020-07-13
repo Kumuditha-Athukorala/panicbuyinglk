@@ -15,15 +15,13 @@ import com.panicbuyinglk.springmvc.entity.UserType;
 import com.panicbuyinglk.springmvc.pojo.RegisterData;
 import com.panicbuyinglk.springmvc.service.UserService;
 import com.panicbuyinglk.springmvc.service.UserTypeService;
+import com.panicbuyinglk.springmvc.serviceimpl.UserServiceImpl;
 
 @Controller
 public class UserController {
-
+	
 	@Autowired
-	UserTypeService userTypeService;
-
-	@Autowired
-	UserService userService;
+	UserServiceImpl userServiceImpl;
 
 	Boolean succsess = true;
 	Boolean error = false;
@@ -31,18 +29,8 @@ public class UserController {
 	@RequestMapping(value = "/registerUser", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody Boolean viewRegisterPage(@RequestBody RegisterData regData) {
 
-		System.out.println(regData.getEmail());
-		System.out.println("registerUser");
-		
-		 ArrayList<UserType> typeList = (ArrayList<UserType>)
-		 userTypeService.getAllUserTypes();
-		 System.out.println(typeList.get(0).getType());
-		 
-
-		ArrayList<User> userList = (ArrayList<User>) userService.getAllUsers();
-
-		System.out.println(userList.get(0).getFirstName());
-
+		userServiceImpl.saveUser(regData);
+	
 		return error;
 	}
 
