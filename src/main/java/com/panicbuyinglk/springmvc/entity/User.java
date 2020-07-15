@@ -1,25 +1,50 @@
 package com.panicbuyinglk.springmvc.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="user")
 public class User {
 	
-	private int userId;
-	private String firstName;
-	private String lastName;
-	private String gender;
-	private String address;
-	private String email;
-	private String password;
-	private int usertype_Id;
-	
-	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="user_id")
+	private int userId;
+	
+	@Column(name="first_name")
+	private String firstName;
+	
+	@Column(name="last_name")
+	private String lastName;
+	
+	@Column(name="gender")
+	private String gender;
+	
+	@Column(name="phone")
+	private String phone;
+	
+	@Column(name="address")
+	private String address;
+	
+	@Column(name="email")
+	private String email;
+	
+	@Column(name="password")
+	private String password;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "usertype_id", nullable = false)
+	private UserType userType;
+	
+	
 	public int getUserId() {
 		return userId;
 	}
@@ -44,6 +69,12 @@ public class User {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 	public String getAddress() {
 		return address;
 	}
@@ -62,14 +93,14 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public int getUsertype_Id() {
-		return usertype_Id;
+	public UserType getUserType() {
+		return userType;
 	}
-	public void setUsertype_Id(int usertype_Id) {
-		this.usertype_Id = usertype_Id;
+	public void setUserType(UserType userType) {
+		this.userType = userType;
 	}
-
 	
 	
 	
+		
 }
