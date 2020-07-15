@@ -18,6 +18,8 @@ public class UserServiceImpl {
 	public User saveUser(RegisterData registerData) {
 		
 		User user = new User();
+		UserType ut = new UserType();
+		
 		user.setFirstName(registerData.getFirstName());
 		user.setLastName(registerData.getFirstName());
 		user.setGender(registerData.getGender());
@@ -26,11 +28,15 @@ public class UserServiceImpl {
 		user.setEmail(registerData.getEmail());
 		user.setPassword(registerData.getPassword());
 		
-		UserType ut = new UserType();
-		ut.setUsertype_id(1);
-		ut.setType(registerData.getUtype());
-		user.setUserType(ut);
-		
+		if("Customer".equals(registerData.getUtype())) {
+			ut.setUsertype_id(1);
+			ut.setType(registerData.getUtype());
+		}else if("Seller".equals(registerData.getUtype())) {
+			ut.setUsertype_id(2);
+			ut.setType(registerData.getUtype());
+		}
+				
+		user.setUserType(ut);		
 		return userService.saveUser(user);
 		
 	}
