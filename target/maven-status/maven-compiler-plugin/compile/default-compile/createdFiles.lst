@@ -1,11 +1,11 @@
 com\panicbuyinglk\springmvc\PanicbuyinglkApplication.class
+com\panicbuyinglk\springmvc\service\UserService.class
+com\panicbuyinglk\springmvc\entity\UserType.class
+com\panicbuyinglk\springmvc\entity\User.class
 com\panicbuyinglk\springmvc\pojo\RegisterData.class
 com\panicbuyinglk\springmvc\service\UserTypeService.class
 com\panicbuyinglk\springmvc\serviceimpl\UserServiceImpl.class
 com\panicbuyinglk\springmvc\controller\MainController.class
 com\panicbuyinglk\springmvc\repository\UserRepository.class
-com\panicbuyinglk\springmvc\service\UserService.class
 com\panicbuyinglk\springmvc\repository\UserTypeRepository.class
-com\panicbuyinglk\springmvc\entity\UserType.class
-com\panicbuyinglk\springmvc\entity\User.class
 com\panicbuyinglk\springmvc\controller\UserController.class

@@ -1,0 +1,9 @@
+[INFO ] 2020-07-16 20:20:00.994 [main] PanicbuyinglkApplication - Starting PanicbuyinglkApplication on LAPTOP-164KM9F1 with PID 10068 (D:\eclips_web_projects\panicbuyinglk\target\classes started by ASUS in D:\eclips_web_projects\panicbuyinglk)
+[DEBUG] 2020-07-16 20:20:00.996 [main] PanicbuyinglkApplication - Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+[INFO ] 2020-07-16 20:20:00.997 [main] PanicbuyinglkApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 20:20:05.204 [main] PanicbuyinglkApplication - Started PanicbuyinglkApplication in 4.478 seconds (JVM running for 5.608)
+[DEBUG] 2020-07-16 20:20:16.723 [http-nio-8088-exec-2] MainController - This is a debug message
+[INFO ] 2020-07-16 20:20:16.723 [http-nio-8088-exec-2] MainController - This is an info message
+[WARN ] 2020-07-16 20:20:16.723 [http-nio-8088-exec-2] MainController - This is a warn message
+[ERROR] 2020-07-16 20:20:16.723 [http-nio-8088-exec-2] MainController - This is an error message
+[FATAL] 2020-07-16 20:20:16.723 [http-nio-8088-exec-2] MainController - This is a fatal message
