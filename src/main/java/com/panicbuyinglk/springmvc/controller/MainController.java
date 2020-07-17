@@ -11,30 +11,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MainController {
 
 	private static final Logger logger = LogManager.getLogger(MainController.class.getName());
-	 
 
-	@Value("${property.filename}")
-	String lang;
 
 	@RequestMapping("/")
 	public String viewHomePage() {
 		return "index";
 	}
 
+	@RequestMapping("/index")
+	public String viewIndexPage() {
+		return "index";
+	}
+	
 	@RequestMapping("/register")
 	public String viewRegisterPage() {
-		performSomeTask();
 		return "register";
 	}
 
-	public void performSomeTask() {
-		
-		  logger.debug("This is a debug message");
-		  logger.info("This is an info message");
-		  logger.warn("This is a warn message");
-		  logger.error("This is an error message");
-		  logger.fatal("This is a fatal message");
-		 
-	}
 
 }

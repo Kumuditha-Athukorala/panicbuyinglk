@@ -68,8 +68,17 @@ function checkCustomerRegistration() {
     		data : JSON.stringify(registerData),
     		dataType : 'json',				
     		success : function(response) {
+    			
     			console.log(response);
-    			window.location.href = "/register";
+    			
+    			if(true == response){
+    				alert("You have sucessfully registterd with PanicbuyingLK");
+    				window.location.href = "/index";
+    			}else{
+    				alert("User Registration is Unseccessful..!");
+    				window.location.href = "/register";
+    			}
+    			
     		}    			
     		
     	});

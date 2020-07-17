@@ -1,7 +1,5 @@
 package com.panicbuyinglk.springmvc.controller;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -27,11 +25,13 @@ public class UserController {
 	public @ResponseBody Boolean viewRegisterPage(@RequestBody RegisterData regData) {
 
 		User u = userServiceImpl.saveUser(regData);
-
-
-		System.out.println(u.getEmail());
-
-		return error;
+		
+		if(null != u) {
+			return succsess;
+		}else {
+			return error;
+		}
+		
 	}
 
 }
