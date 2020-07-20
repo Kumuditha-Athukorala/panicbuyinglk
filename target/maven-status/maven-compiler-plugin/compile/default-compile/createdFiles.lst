@@ -1,7 +1,9 @@
 com\panicbuyinglk\springmvc\PanicbuyinglkApplication.class
 com\panicbuyinglk\springmvc\service\UserService.class
+com\panicbuyinglk\springmvc\logger\PanicbuyingLKLogger.class
 com\panicbuyinglk\springmvc\entity\UserType.class
 com\panicbuyinglk\springmvc\entity\User.class
+com\panicbuyinglk\springmvc\pojo\Logindata.class
 com\panicbuyinglk\springmvc\pojo\RegisterData.class
 com\panicbuyinglk\springmvc\service\UserTypeService.class
 com\panicbuyinglk\springmvc\serviceimpl\UserServiceImpl.class

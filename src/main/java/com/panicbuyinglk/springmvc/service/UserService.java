@@ -21,5 +21,10 @@ public class UserService {
 	public User saveUser(User u) {
 		return userRepository.save(u);
 	}
+	
+	public List<User> getLoggedUser(String email, String password) {
+		return userRepository.findUserByEmailAndPassword(email, password);
+	}
 
+	
 }

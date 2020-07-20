@@ -1,10 +1,13 @@
 package com.panicbuyinglk.springmvc.serviceimpl;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.panicbuyinglk.springmvc.entity.User;
 import com.panicbuyinglk.springmvc.entity.UserType;
+import com.panicbuyinglk.springmvc.pojo.Logindata;
 import com.panicbuyinglk.springmvc.pojo.RegisterData;
 import com.panicbuyinglk.springmvc.service.UserService;
 
@@ -21,7 +24,7 @@ public class UserServiceImpl {
 			UserType ut = new UserType();
 
 			user.setFirstName(registerData.getFirstName());
-			user.setLastName(registerData.getFirstName());
+			user.setLastName(registerData.getLastName());
 			user.setGender(registerData.getGender());
 			user.setPhone(registerData.getPhone());
 			user.setAddress(registerData.getAddress());
@@ -39,11 +42,23 @@ public class UserServiceImpl {
 			return userService.saveUser(user);
 
 		} catch (Exception e) {
-			e.printStackTrace();	
+			e.printStackTrace();
 			return new User();
-		} 
-		
+		}
 
+	}
+
+	public User logUser(Logindata logindata) {
+		
+		String username = logindata.getEmail();
+		String password = logindata.getPassword();
+		
+		ArrayList<User> ulist = (ArrayList<User>) userService.getLoggedUser(username, password);
+		
+		System.out.println("loggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg");
+		System.out.println(ulist.size() + " " + ulist.get(0).getFirstName());
+		
+		return ulist.get(0);
 	}
 
 }

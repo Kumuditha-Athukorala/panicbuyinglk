@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.panicbuyinglk.springmvc.entity.User;
 import com.panicbuyinglk.springmvc.logger.PanicbuyingLKLogger;
+import com.panicbuyinglk.springmvc.pojo.Logindata;
 import com.panicbuyinglk.springmvc.pojo.RegisterData;
 import com.panicbuyinglk.springmvc.serviceimpl.UserServiceImpl;
 
@@ -73,6 +74,18 @@ public class UserController {
 		}
 		return error;
 
+	}
+	
+	
+	@RequestMapping(value = "/logUser", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody Boolean loginUser(@RequestBody Logindata logindata) {
+		
+		User loggedUser = userServiceImpl.logUser(logindata);
+		
+		System.out.println("in controller");
+		System.out.println(loggedUser.getEmail());
+		
+		return succsess;
 	}
 
 }
