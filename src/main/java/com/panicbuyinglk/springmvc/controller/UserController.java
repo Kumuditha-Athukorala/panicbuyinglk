@@ -82,9 +82,11 @@ public class UserController {
 		
 		User loggedUser = userServiceImpl.logUser(logindata);
 		
-		System.out.println("in controller");
-		System.out.println(loggedUser.getEmail());
-		
+		if(null != loggedUser.getEmail()) {
+			// session code goes here
+		}
+	
+				
 		return succsess;
 	}
 

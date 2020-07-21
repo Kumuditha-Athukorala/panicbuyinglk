@@ -49,16 +49,20 @@ public class UserServiceImpl {
 	}
 
 	public User logUser(Logindata logindata) {
-		
+
 		String username = logindata.getEmail();
 		String password = logindata.getPassword();
-		
-		ArrayList<User> ulist = (ArrayList<User>) userService.getLoggedUser(username, password);
-		
-		System.out.println("loggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg");
-		System.out.println(ulist.size() + " " + ulist.get(0).getFirstName());
-		
-		return ulist.get(0);
+
+		try {
+
+			ArrayList<User> ulist = (ArrayList<User>) userService.getLoggedUser(username, password);
+			return ulist.get(0);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new User();
+		}
+
 	}
 
 }
