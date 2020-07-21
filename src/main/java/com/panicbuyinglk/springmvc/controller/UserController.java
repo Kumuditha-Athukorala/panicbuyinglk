@@ -1,5 +1,7 @@
 package com.panicbuyinglk.springmvc.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,7 +63,8 @@ public class UserController {
 				buildLogRecord.append("</userregistrationrequest>");
 
 				PanicbuyingLKLogger lkLogger = new PanicbuyingLKLogger();
-				String message = lkLogger.writeLogRecord(buildLogRecord, logRecordType, userId, userGender, userType).toString();
+				String message = lkLogger.writeLogRecord(buildLogRecord, logRecordType, userId, userGender, userType)
+						.toString();
 
 				logger.debug(message);
 				return succsess;
@@ -75,20 +78,26 @@ public class UserController {
 		return error;
 
 	}
-	
-	
+
 	@RequestMapping(value = "/logUser", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody Boolean loginUser(@RequestBody Logindata logindata) {
-		
+	public @ResponseBody Boolean loginUser(@RequestBody Logindata logindata, HttpServletRequest request) {
+
 		User loggedUser = userServiceImpl.logUser(logindata);
-		
-		if(null != loggedUser.getEmail()) {
-			// session code goes here
+
+		if (null != loggedUser.getEmail()) {
+			request.getSession().setAttribute("loggedUser", loggedUser);
 			return succsess;
-		}else {
+		} else {
 			return error;
-		}				
+		}
+
+	}
+
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String destroySession(HttpServletRequest request) {
 		
+		request.getSession().invalidate();
+		return "index";
 	}
 
 }
