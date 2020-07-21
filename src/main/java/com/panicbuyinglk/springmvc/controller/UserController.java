@@ -84,10 +84,11 @@ public class UserController {
 		
 		if(null != loggedUser.getEmail()) {
 			// session code goes here
-		}
-	
-				
-		return succsess;
+			return succsess;
+		}else {
+			return error;
+		}				
+		
 	}
 
 }

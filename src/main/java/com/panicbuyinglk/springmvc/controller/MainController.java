@@ -28,5 +28,9 @@ public class MainController {
 		return "register";
 	}
 
+	@RequestMapping("/login")
+	public String viewLoginPage() {
+		return "user_login";
+	}
 
 }
