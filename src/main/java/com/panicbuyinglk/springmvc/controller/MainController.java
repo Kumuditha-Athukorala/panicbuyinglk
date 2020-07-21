@@ -30,7 +30,7 @@ public class MainController {
 
 	@RequestMapping("/login")
 	public String viewLoginPage() {
-		return "user_login";
+		return "user-login";
 	}
 
 }

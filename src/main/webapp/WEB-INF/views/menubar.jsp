@@ -9,9 +9,9 @@
 	<div class="collaps navbar-collapse" id="navbarMenu">
 		<ul class="navbar-nav ml-auto">
 			<li class="nav-item"><a href="register" class="nav-link">Register</a></li>
-			<li class="nav-item"><a href="#" class="nav-link">log-In</a></li>
-			<li class="nav-item"><a href="#" class="nav-link">Users</a></li>
+			<li class="nav-item"><a href="login" class="nav-link">log-In</a></li>
 			<li class="nav-item"><a href="#" class="nav-link">Products</a></li>
+			<li class="nav-item"><a href="#" class="nav-link">Cart</a></li>
 		</ul>
 	</div>
 </nav>
