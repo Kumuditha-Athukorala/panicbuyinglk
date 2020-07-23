@@ -21,7 +21,6 @@
 			%>
 			<li class="nav-item"><a href="register" class="nav-link">Register</a></li>
 			<li class="nav-item"><a href="login" class="nav-link">log-In</a></li>
-
 			<%
 				}
 			%>
