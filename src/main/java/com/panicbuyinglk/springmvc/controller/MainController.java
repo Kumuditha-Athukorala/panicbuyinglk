@@ -32,5 +32,11 @@ public class MainController {
 	public String viewLoginPage() {
 		return "user-login";
 	}
+	
+	@RequestMapping("/registerProductPage")
+	public String viewProductRegistartionPage() {
+		return "product-register";
+	}
+
 
 }

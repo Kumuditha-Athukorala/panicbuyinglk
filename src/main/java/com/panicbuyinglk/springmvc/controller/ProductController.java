@@ -13,8 +13,10 @@ import com.panicbuyinglk.springmvc.pojo.ProductData;
 @Controller
 public class ProductController {
 
-	@RequestMapping(value = "/registerProduct", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody Boolean registerProduct(@RequestBody ProductData prdData) {
+	@RequestMapping(value = "/registerProduct", method = RequestMethod.POST)
+	public @ResponseBody Boolean registerProduct() {
+		
+		System.out.println("productsssssssssssssss");
 		
 		
 		return true;
