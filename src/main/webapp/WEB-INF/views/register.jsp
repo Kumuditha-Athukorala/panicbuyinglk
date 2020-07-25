@@ -1,3 +1,5 @@
+<%@page import="com.panicbuyinglk.springmvc.entity.UserType"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -55,8 +57,12 @@
             <div class="form-group">
                 <label for="usertype">User Type:</label>
                 <select class="form-control" id="sel2" name="usertype" required>
-                    <option value="Customer">Customer</option>
-                    <option value="Seller">Seller</option>
+                <%
+                ArrayList<UserType> userTypeList = (ArrayList<UserType>)request.getAttribute("userTypes");                
+                for(UserType ut:userTypeList){           
+                %>
+                 <option value="<% out.write(ut.getType()); %>"><% out.write(ut.getType()); %></option>            
+                 <% } %>   
                 </select>
             </div>
             

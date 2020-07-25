@@ -16,6 +16,7 @@ import com.panicbuyinglk.springmvc.entity.User;
 import com.panicbuyinglk.springmvc.logger.PanicbuyingLKLogger;
 import com.panicbuyinglk.springmvc.pojo.Logindata;
 import com.panicbuyinglk.springmvc.pojo.RegisterData;
+import com.panicbuyinglk.springmvc.service.UserService;
 import com.panicbuyinglk.springmvc.serviceimpl.UserServiceImpl;
 
 @Controller
@@ -25,9 +26,26 @@ public class UserController {
 
 	@Autowired
 	UserServiceImpl userServiceImpl;
+	
+	@Autowired
+	UserService userService;
 
 	Boolean succsess = true;
 	Boolean error = false;
+	
+	@RequestMapping(value = "/checkEmail", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody Boolean checkUserEmail(@RequestBody RegisterData regData) {
+		
+		User user = userService.getUserByEamil(regData.getEmail());
+		
+		if(null != user) {
+			return error;
+		}else {
+			return succsess;
+		}
+		
+		
+	}
 
 	@RequestMapping(value = "/registerUser", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody Boolean viewRegisterPage(@RequestBody RegisterData regData) {

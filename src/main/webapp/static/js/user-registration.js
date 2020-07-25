@@ -47,46 +47,68 @@ function checkCustomerRegistration() {
     } else if (password != conpswd) {
         document.getElementById("register-message").innerHTML = "Passwords are not matching...!";
         return false;
-    } else {  
-    	    	
-        var registerData = {        		
-        		"firstName":fname,
-        		"lastName":lname,
-        		"gender":gender,
-        		"utype" : utype,
-        		"phone":phone,
-        		"address":address,
-        		"email":email,
-        		"password":password,
-        		"conpassword":conpswd        		
-        }
+    } else { 
+    	
+    	  var registerData = {        		
+    	    		"firstName":fname,
+    	    		"lastName":lname,
+    	    		"gender":gender,
+    	    		"utype" : utype,
+    	    		"phone":phone,
+    	    		"address":address,
+    	    		"email":email,
+    	    		"password":password,
+    	    		"conpassword":conpswd        		
+    	    }
 
     	$.ajax({
     		type : "POST",
     		contentType : "application/json",
-    		url : "registerUser",
+    		url : "checkEmail",
     		data : JSON.stringify(registerData),
     		dataType : 'json',				
-    		success : function(response) {
-    			
+    		success : function(response) {    			
     			console.log(response);
-    			
     			if(true == response){
-    				alert("You have sucessfully registterd with PanicbuyingLK");
-    				window.location.href = "/index";
+    				registerUser(registerData);
     			}else{
-    				alert("User Registration is Unseccessful..!");
-    				window.location.href = "/register";
+    				document.getElementById("register-message").innerHTML = "Given Email is Already Exixting with a User Account...!";
+    				return false;
     			}
     			
     		}    			
     		
-    	});
-    	
+    	}); 	
     	
                
     }
     
+}
+
+
+function registerUser(registerData){
+	
+	$.ajax({
+		type : "POST",
+		contentType : "application/json",
+		url : "registerUser",
+		data : JSON.stringify(registerData),
+		dataType : 'json',				
+		success : function(response) {
+			
+			console.log(response);
+			
+			if(true == response){
+				alert("You have sucessfully registterd with PanicbuyingLK");
+				window.location.href = "/index";
+			}else{
+				alert("User Registration is Unseccessful..!");
+				window.location.href = "/register";
+			}
+			
+		}    			
+		
+	});
 }
 
 
