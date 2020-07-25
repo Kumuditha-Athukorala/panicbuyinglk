@@ -8,7 +8,7 @@ public class ProductData {
 
 	private int qyt;
 
-	private String imageurl;
+	private byte[] image;
 	
 	private String description;
 
@@ -38,14 +38,14 @@ public class ProductData {
 
 	public void setQyt(int qyt) {
 		this.qyt = qyt;
+	}	
+
+	public byte[] getImage() {
+		return image;
 	}
 
-	public String getImageurl() {
-		return imageurl;
-	}
-
-	public void setImageurl(String imageurl) {
-		this.imageurl = imageurl;
+	public void setImage(byte[] image) {
+		this.image = image;
 	}
 
 	public String getDescription() {

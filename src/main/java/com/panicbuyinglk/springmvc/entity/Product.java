@@ -29,16 +29,16 @@ public class Product {
 	private int qty;
 
 	@Column(name = "image")
-	private String image;
+	private byte[] image;
 
 	@Column(name = "description")
 	private String description;
 
 	@Column(name = "status")
-	private String status;
+	private int status;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "category_category_id", nullable = false)
+	@JoinColumn(name = "category_id", nullable = false)
 	private Category category;
 
 	public int getProductId() {
@@ -73,11 +73,12 @@ public class Product {
 		this.qty = qty;
 	}
 
-	public String getImage() {
+
+	public byte[] getImage() {
 		return image;
 	}
 
-	public void setImage(String image) {
+	public void setImage(byte[] image) {
 		this.image = image;
 	}
 
@@ -89,11 +90,11 @@ public class Product {
 		this.description = description;
 	}
 
-	public String getStatus() {
+	public int getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(int status) {
 		this.status = status;
 	}
 

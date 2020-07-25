@@ -45,10 +45,8 @@
            
 
 				<div class="form-group">
-					<label for="img">Image:</label> <input type="file" name="file"
-						class="form-control" id="img" placeholder="Choose Image File"
-						accept="image/*" required>
-
+					<label for="img">Image:</label> 
+					<input type="file" name="image"	class="form-control" id="img" placeholder="Choose Image File" required>
 				</div>          
 
             <div class="form-group">
