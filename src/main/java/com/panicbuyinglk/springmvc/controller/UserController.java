@@ -26,25 +26,24 @@ public class UserController {
 
 	@Autowired
 	UserServiceImpl userServiceImpl;
-	
+
 	@Autowired
 	UserService userService;
 
 	Boolean succsess = true;
 	Boolean error = false;
-	
+
 	@RequestMapping(value = "/checkEmail", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody Boolean checkUserEmail(@RequestBody RegisterData regData) {
-		
+
 		User user = userService.getUserByEamil(regData.getEmail());
-		
-		if(null != user) {
+
+		if (null != user) {
 			return error;
-		}else {
+		} else {
 			return succsess;
 		}
-		
-		
+
 	}
 
 	@RequestMapping(value = "/registerUser", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -102,7 +101,7 @@ public class UserController {
 
 		User loggedUser = userServiceImpl.logUser(logindata);
 
-		if (null != loggedUser.getEmail()) {
+		if (null != loggedUser) {
 			request.getSession().setAttribute("loggedUser", loggedUser);
 			return succsess;
 		} else {
@@ -113,7 +112,7 @@ public class UserController {
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String destroySession(HttpServletRequest request) {
-		
+
 		request.getSession().invalidate();
 		return "index";
 	}

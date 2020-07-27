@@ -55,8 +55,8 @@ public class UserServiceImpl {
 
 		try {
 
-			ArrayList<User> ulist = (ArrayList<User>) userService.getLoggedUser(username, password);
-			return ulist.get(0);
+			User loggedUser = userService.getLoggedUser(username, password);
+			return loggedUser;
 
 		} catch (Exception e) {
 			e.printStackTrace();

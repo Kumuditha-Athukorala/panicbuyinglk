@@ -5,33 +5,34 @@
 			<ul class="slides">
 				<li>
 					<div class="slider-caption">
-						<h1>Delicious Meals</h1>
-						<p>
-							Nothing brings people together like a generous spread of
-							delicious food. <br> <br>It’s the universal unifier.
+						<h1>Beverages</h1>
+						<p style="color: blue;">
+							Refresh Your Life with Our Beverages...!
+							 <br> <br>
+							 All You Need is Join with Us
 						</p>
-						<a href="/booktable">Book Now</a>
+						<a href="register">Register Now</a>
 					</div> <img src="static/images/slide1.jpg" alt="" />
 				</li>
 				<li>
 					<div class="slider-caption">
-						<h1>Ice-cream Menus</h1>
-						<p>
-							BT HOUSE serve you delicious Ice-Cream Meals also. <br> <br>All
-							You Need Is Ice-Cream
+						<h1>Fruits</h1>
+						<p style="color: blue;">
+							Best Fruits, We Provide to You  <br> <br>
+							 All You Need is Join with Us
 						</p>
-						<a href="/ourMenu">More Details</a>
+						<a href="register">Join with Us</a>
 					</div> <img src="static/images/slide2.jpg" alt="" />
 				</li>
 				<li>
 					<div class="slider-caption">
-						<h1>Healthy Drinks</h1>
-						<p>
-							Menu for Healthy Drinks is unique for BT House. <br> <br>Feel
-							The Difference.
+						<h1>Vegetables</h1>
+						<p style="color: blue;">
+							Best Vegetables, We Provide to You  <br> <br>
+							 All You Need is Join with Us
 						</p>
-						<a href="/customer_registration">Get Ready</a>
-					</div> <img src="static/images/slide3.jpg" alt="k" />
+						<a href="register">Join with Us</a>
+					</div> <img src="static/images/slide3.jpg" alt="" />
 				</li>
 			</ul>
 		</div>

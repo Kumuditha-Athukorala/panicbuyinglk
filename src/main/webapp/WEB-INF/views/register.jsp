@@ -75,7 +75,7 @@
 
             <div class="form-group">
                 <label for="address">Address:</label>
-                <textarea class="form-control" rows="5" id="address" name="addr" required></textarea>
+                <textarea class="form-control" rows="5" id="address" placeholder="Enter Address" name="addr" required></textarea>
             </div>
 
             <div class="form-group">
