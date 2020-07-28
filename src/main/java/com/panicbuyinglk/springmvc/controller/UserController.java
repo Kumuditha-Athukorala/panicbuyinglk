@@ -109,6 +109,8 @@ public class UserController {
 		}
 
 	}
+	
+	
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String destroySession(HttpServletRequest request) {

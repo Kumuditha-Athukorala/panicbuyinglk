@@ -14,7 +14,7 @@
 				User u = (User) request.getSession().getAttribute("loggedUser");
 				if (null != u) {
 			%>
-			<li class="nav-item"><a href="#" class="nav-link">Hi <%  out.print(u.getFirstName()); %></a></li>
+			<li class="nav-item"><a href="profile" class="nav-link">Hi <%  out.print(u.getFirstName()); %></a></li>
 			<li class="nav-item"><a href="logout" class="nav-link">Logout</a></li>
 			<%
 				} else {
