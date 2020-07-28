@@ -37,6 +37,8 @@ public class MainController {
 	@RequestMapping("/register")
 	public String viewRegisterPage(Model model) {
 		ArrayList<UserType> list = (ArrayList<UserType>) userTypeService.getAllUserTypes();
+		
+		list.remove(2);
 		model.addAttribute("userTypes", list);
 		return "register";
 	}
@@ -57,7 +59,24 @@ public class MainController {
 		if(null == loggeduser) {
 			return "user-login";
 		}else {
-			return "profile";
+			
+			int ut_id = loggeduser.getUserType().getUsertype_id();
+			String page =  "";
+			
+			switch (ut_id) {
+			case 1:
+				page = "profile-customer";
+				break;
+
+			case 2:
+				page = "profile-seller";
+				break;
+			
+			case 3:
+				page = "profile-admin";
+				break;
+			}
+			return page;
 		}
 		
 		
