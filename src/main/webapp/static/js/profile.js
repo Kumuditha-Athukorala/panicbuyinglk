@@ -46,11 +46,13 @@ function checkCustomerUpdates() {
         }
 
         $.ajax({
-            type: "POST",
-            url: "/updateCustomer",
-            data: updateData,
-            success: function (result) {
-                if (result == 'None') {
+        	type : "POST",
+    		contentType : "application/json",
+    		url : "updateUser",
+    		data : JSON.stringify(updateData),
+    		dataType : 'json',
+            success: function (response) {
+                if (true == response) {
                     alert("Your Details Updated Successfully...!!!");
                     window.location.href = "index";
                 } else {
@@ -88,15 +90,12 @@ function cancelUpdateForm() {
 
 function changePassword() {
 
-
-
     document.getElementById("change-pw-message").innerHTML = "";
     var email = document.getElementById("email").value;
     var password = document.getElementById("pwd").value;
     var conpswd = document.getElementById("repwd").value;
 
-
-
+    
     if (email == "" || password == "" || email == null || password == null) {
         document.getElementById("change-pw-message").innerHTML = "Please Enter the New User Login Credentials...!";
         return false;
@@ -114,11 +113,13 @@ function changePassword() {
         }
 
         $.ajax({
-            type: "POST",
-            url: "changePassword",
-            data: newLoginData,
-            success: function (result) {
-                if (result == 1) {
+        	type : "POST",
+    		contentType : "application/json",
+    		url : "changePassword",
+    		data : JSON.stringify(newLoginData),
+    		dataType : 'json',
+            success: function (response) {
+                if (true == response) {
                     alert("Password Changed Successfully...!")
                     window.location.href = "index";
                 } else {

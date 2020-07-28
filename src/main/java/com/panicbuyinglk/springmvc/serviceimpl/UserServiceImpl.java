@@ -1,7 +1,5 @@
 package com.panicbuyinglk.springmvc.serviceimpl;
 
-import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -63,6 +61,39 @@ public class UserServiceImpl {
 			return new User();
 		}
 
-	}	
-	
+	}
+
+	public User updateUser(User u, RegisterData updData) {
+
+		try {
+
+			u.setAddress(updData.getAddress());
+			u.setFirstName(updData.getFirstName());
+			u.setLastName(updData.getLastName());
+			u.setGender(updData.getGender());
+			u.setPhone(updData.getPhone());
+
+			return userService.saveUser(u);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new User();
+		}
+
+	}
+
+	public User updatePaasword(User u, Logindata logindata) {
+		
+		try {
+
+			u.setPassword(logindata.getPassword());
+
+			return userService.saveUser(u);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new User();
+		}
+	}
+
 }

@@ -108,10 +108,39 @@ public class UserController {
 			return error;
 		}
 
+	}	
+	
+	
+	@RequestMapping(value = "/updateUser", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody Boolean updateUserDetails(@RequestBody RegisterData updData, HttpServletRequest request) {
+
+		User u = (User) request.getSession().getAttribute("loggedUser");
+		
+		User updatedUser = userServiceImpl.updateUser(u,updData);	
+		
+		if (null != updatedUser) {			
+			return succsess;
+		} else {
+			return error;
+		}
+	}	
+	
+	
+	@RequestMapping(value = "/changePassword", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody Boolean changePassword(@RequestBody Logindata logindata, HttpServletRequest request) {
+
+		User u = (User) request.getSession().getAttribute("loggedUser");
+		
+		User updatedUser = userServiceImpl.updatePaasword(u,logindata);	
+		
+		if (null != updatedUser) {			
+			return succsess;
+		} else {
+			return error;
+		}
 	}
 	
 	
-
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String destroySession(HttpServletRequest request) {
 

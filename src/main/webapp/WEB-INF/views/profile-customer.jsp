@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>My Profile</title>
+<title>Customer Profile</title>
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport"
