@@ -55,7 +55,7 @@ public class UserController {
 
 			try {
 
-				String logRecordType = "user_registraion_request";
+				String logRecordType = "user_registration_request";
 
 				String userId = "<userid>" + savedUser.getUserId() + "</userid>";
 				String userFirstName = "<userfirstname>" + savedUser.getFirstName() + "</userfirstname>";

@@ -1,5 +1,10 @@
 package com.panicbuyinglk.springmvc;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -17,6 +22,11 @@ public class PanicbuyinglkApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PanicbuyinglkApplication.class, args);
+		
+				
+		 String loggingTime= LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS"));
+		
+		System.out.println(loggingTime);
 	}
 
 	

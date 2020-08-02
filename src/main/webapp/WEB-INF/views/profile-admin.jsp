@@ -1,3 +1,7 @@
+
+<%@page import="org.apache.tomcat.util.codec.binary.Base64"%>
+<%@page import="com.panicbuyinglk.springmvc.entity.Product"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -46,7 +50,7 @@
                 <h5 class="mb-0">
                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapsemyorders"
                         aria-expanded="false" aria-controls="collapseTwo">
-                        View My Order Details
+                        View All Products
                     </button>
                 </h5>
             </div>
@@ -57,25 +61,38 @@
                     <table class="table table-bordered table-responsive">
                         <thead>
                             <tr>
-                                <th scope="col">Date</th>
-                                <th scope="col">Time</th>
-                                <th scope="col">Products</th>
-                                <th scope="col">Qty</th>
-                                <th scope="col">Total Amount</th>
+                                <th scope="col">Product Name</th>
+                                <th scope="col">Unit Price  (&euro;)</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Description</th>
                                 <th scope="col">Status</th>
                             </tr>
                         </thead>
                         <tbody>
-                            
+                            <% 
+                           ArrayList<Product> prlist = (ArrayList<Product>)request.getAttribute("productList");
+                           String url; 
+                            for(Product p : prlist){
+                            	 url = "data:image/png;base64," + Base64.encodeBase64String(p.getImage());
+                            %>
                             <tr>
-                                <td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+                                <td><% out.write(p.getProductName()); %></td>							
+								<td><% out.write(Double.toString(p.getUnitPrice())); %></td>
+								<td><% out.write(Integer.toString(p.getQty())); %></td>
+								<td><img alt="#" src="<% out.write(url); %>"></td>
+								<td><% out.write(p.getDescription()); %></td>
+								<td><% 
+								 if (0 == p.getStatus()){   %>  
+								 
+									 <button type="button" class="btn btn-secondary">Active</button>
+		                                                 
+								<% }else if(1 == p.getStatus()){ %>
+									  <button type="button" class="btn btn-secondary">Deactive</button>
+								<%	} 	%>		
+								</td>								
                             </tr>
-                         
+                         <% } %>
                         </tbody>
                     </table>
                     <div class="row" style="margin: 0; padding: 0;">

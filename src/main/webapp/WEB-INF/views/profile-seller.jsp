@@ -46,7 +46,7 @@
                 <h5 class="mb-0">
                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapsemyorders"
                         aria-expanded="false" aria-controls="collapseTwo">
-                        View My Order Details
+                        View My Products Details
                     </button>
                 </h5>
             </div>
@@ -57,11 +57,11 @@
                     <table class="table table-bordered table-responsive">
                         <thead>
                             <tr>
-                                <th scope="col">Date</th>
-                                <th scope="col">Time</th>
-                                <th scope="col">Products</th>
-                                <th scope="col">Qty</th>
-                                <th scope="col">Total Amount</th>
+                                <th scope="col">Product Name</th>
+                                <th scope="col">Unit Price</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Description </th>
                                 <th scope="col">Status</th>
                             </tr>
                         </thead>

@@ -12,8 +12,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.panicbuyinglk.springmvc.entity.Product;
 import com.panicbuyinglk.springmvc.entity.User;
 import com.panicbuyinglk.springmvc.entity.UserType;
+import com.panicbuyinglk.springmvc.service.ProductService;
 import com.panicbuyinglk.springmvc.service.UserTypeService;
 
 @Controller
@@ -23,6 +25,9 @@ public class MainController {
 
 	@Autowired
 	UserTypeService userTypeService;
+	
+	@Autowired
+	ProductService productService;
 
 	@RequestMapping("/")
 	public String viewHomePage() {
@@ -54,7 +59,7 @@ public class MainController {
 	}
 
 	@RequestMapping("/profile")
-	public String viewProfilePage(HttpServletRequest request) {
+	public String viewProfilePage(HttpServletRequest request, Model model) {
 		User loggeduser = (User) request.getSession().getAttribute("loggedUser");
 		if(null == loggeduser) {
 			return "user-login";
@@ -74,6 +79,8 @@ public class MainController {
 			
 			case 3:
 				page = "profile-admin";
+				ArrayList<Product> allProducts = (ArrayList<Product>) productService.getAllProducts();
+				model.addAttribute("productList", allProducts);
 				break;
 			}
 			return page;
