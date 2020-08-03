@@ -22,7 +22,7 @@ import com.panicbuyinglk.springmvc.service.UserTypeService;
 public class MainController {
 
 	private static final Logger logger = LogManager.getLogger(MainController.class.getName());
-
+	
 	@Autowired
 	UserTypeService userTypeService;
 	
@@ -53,10 +53,10 @@ public class MainController {
 		return "user-login";
 	}
 
-	@RequestMapping("/registerProductPage")
-	public String viewProductRegistartionPage() {
-		return "product-register";
-	}
+	/*
+	 * @RequestMapping("/registerProductPage") public String
+	 * viewProductRegistartionPage() { return "product-register"; }
+	 */
 
 	@RequestMapping("/profile")
 	public String viewProfilePage(HttpServletRequest request, Model model) {

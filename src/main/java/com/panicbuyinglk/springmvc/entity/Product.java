@@ -1,5 +1,7 @@
 package com.panicbuyinglk.springmvc.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -40,6 +42,17 @@ public class Product {
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "category_id", nullable = false)
 	private Category category;
+	
+	@Column(name = "registered_date")
+	private Date registeredDate;
+	
+	@Column(name = "available_date")
+	private Date availableDate;
+	
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "register_user_id", nullable = false)
+	private User registerUser;
+	
 
 	public int getProductId() {
 		return productId;
@@ -105,6 +118,28 @@ public class Product {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
-	
 
+	public Date getRegisteredDate() {
+		return registeredDate;
+	}
+
+	public void setRegisteredDate(Date registeredDate) {
+		this.registeredDate = registeredDate;
+	}
+
+	public Date getAvailableDate() {
+		return availableDate;
+	}
+
+	public void setAvailableDate(Date availableDate) {
+		this.availableDate = availableDate;
+	}
+
+	public User getRegisterUser() {
+		return registerUser;
+	}
+
+	public void setRegisterUser(User registerUser) {
+		this.registerUser = registerUser;
+	}
 }

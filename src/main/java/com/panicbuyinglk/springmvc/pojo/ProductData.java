@@ -1,5 +1,9 @@
 package com.panicbuyinglk.springmvc.pojo;
 
+import java.util.Date;
+
+import com.panicbuyinglk.springmvc.entity.User;
+
 public class ProductData {
 
 	private String productName;
@@ -15,6 +19,10 @@ public class ProductData {
 	private int status;
 	
 	private String category;
+	
+	private User registeredUser;
+	
+	private Date registerDate;
 
 	public String getProductName() {
 		return productName;
@@ -70,6 +78,22 @@ public class ProductData {
 
 	public void setCategory(String category) {
 		this.category = category;
+	}
+
+	public User getRegisteredUser() {
+		return registeredUser;
+	}
+
+	public void setRegisteredUser(User registeredUser) {
+		this.registeredUser = registeredUser;
+	}
+
+	public Date getRegisterDate() {
+		return registerDate;
+	}
+
+	public void setRegisterDate(Date registerDate) {
+		this.registerDate = registerDate;
 	}
 	
 	

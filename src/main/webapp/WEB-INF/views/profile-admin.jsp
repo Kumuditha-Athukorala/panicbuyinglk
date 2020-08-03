@@ -1,4 +1,3 @@
-
 <%@page import="org.apache.tomcat.util.codec.binary.Base64"%>
 <%@page import="com.panicbuyinglk.springmvc.entity.Product"%>
 <%@page import="java.util.ArrayList"%>
@@ -80,7 +79,7 @@
                                 <td><% out.write(p.getProductName()); %></td>							
 								<td><% out.write(Double.toString(p.getUnitPrice())); %></td>
 								<td><% out.write(Integer.toString(p.getQty())); %></td>
-								<td><img alt="#" src="<% out.write(url); %>"></td>
+								<td><img width="250px" height="200px" alt="#" src="<% out.write(url); %>"></td>
 								<td><% out.write(p.getDescription()); %></td>
 								<td><% 
 								 if (0 == p.getStatus()){   %>  

@@ -2,6 +2,7 @@ package com.panicbuyinglk.springmvc.controller;
 
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.panicbuyinglk.springmvc.entity.User;
 import com.panicbuyinglk.springmvc.pojo.ProductData;
 import com.panicbuyinglk.springmvc.serviceimpl.ProductSeviceImpl;
 
@@ -30,9 +32,9 @@ public class ProductController {
 	Boolean error = false;
 	
 	@RequestMapping(value = "/registerProduct", method = RequestMethod.POST)
-	public @ResponseBody Boolean registerProduct(HttpServletRequest request, final @RequestParam("image") MultipartFile file) throws IOException {
+	public String registerProduct(HttpServletRequest request, final @RequestParam("image") MultipartFile file) throws IOException {
 		
-				
+		User user = (User) request.getSession().getAttribute("loggedUser");
 		byte[] imgData = file.getBytes();
 		
 		ProductData productData = new ProductData();
@@ -44,11 +46,13 @@ public class ProductController {
 		productData.setImage(imgData);
 		productData.setCategory(request.getParameter("category"));		
 		productData.setStatus(0);
+		productData.setRegisteredUser(user);
+		productData.setRegisterDate(new Date());
 	
 		productSeviceImpl.saveProduct(productData);
 		
 		
 		
-		return succsess;
+		return "index";
 	}
 }
