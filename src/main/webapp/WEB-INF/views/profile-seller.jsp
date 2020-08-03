@@ -1,3 +1,6 @@
+<%@page import="org.apache.tomcat.util.codec.binary.Base64"%>
+<%@page import="com.panicbuyinglk.springmvc.entity.Product"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -64,17 +67,34 @@
                                 <th scope="col">Status</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            
+                       <tbody>
+                            <% 
+                           ArrayList<Product> prlist = (ArrayList<Product>)request.getAttribute("userProductList");
+                           String url; 
+                            for(Product p : prlist){
+                            	 url = "data:image/png;base64," + Base64.encodeBase64String(p.getImage());
+                            %>
                             <tr>
-                                <td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+                                <td><% out.write(p.getProductName()); %></td>							
+								<td><% out.write(Double.toString(p.getUnitPrice())); %></td>
+								<td><% out.write(Integer.toString(p.getQty())); %></td>
+								<td><img width="250px" height="200px" alt="#" src="<% out.write(url); %>"></td>
+								<td><% out.write(p.getDescription()); %></td>
+								<td><% if(1 == p.getStatus()){
+									out.write("Active");
+									
+								}	else{
+									out.write("De-active");
+									
+								}
+								
+								
+								
+								
+								
+								%></td>								
                             </tr>
-                         
+                         <% } %>
                         </tbody>
                     </table>
                                       

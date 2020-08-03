@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.panicbuyinglk.springmvc.entity.Product;
+import com.panicbuyinglk.springmvc.entity.User;
 import com.panicbuyinglk.springmvc.repository.ProductRepository;
 
 @Service
@@ -20,5 +21,9 @@ public class ProductService {
 
 	public Product saveProduct(Product p) {
 		return productRepository.save(p);
+	}
+	
+	public List<Product> getProductsByUser(User u) {
+		return productRepository.getProductsByUser(u.getUserId());
 	}
 }

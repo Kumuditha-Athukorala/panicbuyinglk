@@ -75,6 +75,8 @@ public class MainController {
 
 			case 2:
 				page = "profile-seller";
+				ArrayList<Product> prdList = (ArrayList<Product>) productService.getProductsByUser(loggeduser);
+				model.addAttribute("userProductList", prdList);
 				break;
 			
 			case 3:
