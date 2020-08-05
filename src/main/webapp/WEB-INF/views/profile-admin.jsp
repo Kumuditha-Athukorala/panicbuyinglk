@@ -84,10 +84,10 @@
 								<td><% 
 								 if (0 == p.getStatus()){   %>  
 								 
-									 <button type="button" class="btn btn-secondary">Active</button>
+									 <button type="button" class="btn btn-secondary" onclick="changeProductStatus(<%= p.getProductId() %>,<%= p.getStatus()%>)">Active</button>
 		                                                 
 								<% }else if(1 == p.getStatus()){ %>
-									  <button type="button" class="btn btn-secondary">Deactive</button>
+									  <button type="button" class="btn btn-secondary"  onclick="changeProductStatus(<%= p.getProductId() %>,<%= p.getStatus()%>)">Deactive</button>
 								<%	} 	%>		
 								</td>								
                             </tr>

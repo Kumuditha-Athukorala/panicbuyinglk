@@ -26,4 +26,8 @@ public class ProductService {
 	public List<Product> getProductsByUser(User u) {
 		return productRepository.getProductsByUser(u.getUserId());
 	}
+	
+	public Product getProdutById(int productId) {
+		return productRepository.getProductById(productId);
+	}
 }

@@ -6,6 +6,8 @@ import com.panicbuyinglk.springmvc.entity.User;
 
 public class ProductData {
 
+	private int productId;
+	
 	private String productName;
 
 	private Double unitPrice;
@@ -22,7 +24,16 @@ public class ProductData {
 	
 	private User registeredUser;
 	
-	private Date registerDate;
+	private Date registerDate;	
+	
+
+	public int getProductId() {
+		return productId;
+	}
+
+	public void setProductId(int productId) {
+		this.productId = productId;
+	}
 
 	public String getProductName() {
 		return productName;

@@ -52,4 +52,20 @@ public class ProductSeviceImpl {
 		
 	}
 
+	public Product updateProductStatus(ProductData prData) {
+		
+		Product p = productService.getProdutById(prData.getProductId());		
+		
+		if(0 == prData.getStatus()) {
+			p.setStatus(1);			
+		}else if (1 == prData.getStatus()) {
+			p.setStatus(0);
+		}
+		
+		Product updatedProduct= productService.saveProduct(p);
+		
+		return updatedProduct;
+		
+	}
+	
 }

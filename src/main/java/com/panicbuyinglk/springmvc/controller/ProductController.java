@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,8 +17,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.panicbuyinglk.springmvc.entity.Product;
 import com.panicbuyinglk.springmvc.entity.User;
 import com.panicbuyinglk.springmvc.pojo.ProductData;
+import com.panicbuyinglk.springmvc.pojo.RegisterData;
 import com.panicbuyinglk.springmvc.serviceimpl.ProductSeviceImpl;
 
 
@@ -55,4 +58,27 @@ public class ProductController {
 		
 		return "index";
 	}
+	
+	
+	
+	
+	
+	
+	@RequestMapping(value = "/changeProductStatus", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody Boolean changeProductStatus(@RequestBody ProductData product){
+		
+	System.out.println(product.getProductId());
+	System.out.println(product.getStatus());
+	
+	 Product updatedProduct= productSeviceImpl.updateProductStatus(product);
+	 
+	 if(null != updatedProduct) {
+		 return succsess;
+	 }else {
+		 return error;
+	 }
+		
+	}
+	
+	
 }

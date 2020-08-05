@@ -132,6 +132,34 @@ function changePassword() {
 
 }
 
+function changeProductStatus(product,status){
+	
+	alert(product,status);
+	console.log(product,status);
+	
+	productStatusData = {
+            "productId": product,
+            "status": status
+        }
+
+        $.ajax({
+        	type : "POST",
+    		contentType : "application/json",
+    		url : "changeProductStatus",
+    		data : JSON.stringify(productStatusData),
+    		dataType : 'json',
+            success: function (response) {
+                if (true == response) {
+                    alert("Product Status Changed Successfully...!")
+                    window.location.href = "index";
+                } else {
+                	alert("Product Status Change Unsucsessful...!")
+                }
+
+            }
+        });
+}
+
 function cancelChangePassword() {
 
     window.location.href = "index";
