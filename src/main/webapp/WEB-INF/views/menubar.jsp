@@ -1,7 +1,7 @@
 
 <%@page import="com.panicbuyinglk.springmvc.entity.User"%>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-	<a href="index" class="navbar-brand">PanicBuyingLK</a>
+	<a href="/" class="navbar-brand">PanicBuyingLK</a>
 	<button class="navbar-toggler" data-toggle="collapse"
 		data-target="#navbarMenu">
 		<span class="navbar-toggler-icon"> </span>

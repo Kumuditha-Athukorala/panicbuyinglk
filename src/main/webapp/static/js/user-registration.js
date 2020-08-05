@@ -100,7 +100,7 @@ function registerUser(registerData){
 			
 			if(true == response){
 				alert("You have sucessfully registterd with PanicbuyingLK");
-				window.location.href = "/index";
+				window.location.href = "/";
 			}else{
 				alert("User Registration is Unseccessful..!");
 				window.location.href = "/register";
@@ -136,5 +136,5 @@ function alphanumeric(input) {
 
 function cancelRegisterForm() {
     alert("Do You Want To Cancel The Registration?");
-    window.location.href = "index";
+    window.location.href = "/";
 }

@@ -30,4 +30,8 @@ public class ProductService {
 	public Product getProdutById(int productId) {
 		return productRepository.getProductById(productId);
 	}
+	
+	public List<Product> getActiveProducts(){
+		return productRepository.getActiveProducts();
+	}
 }

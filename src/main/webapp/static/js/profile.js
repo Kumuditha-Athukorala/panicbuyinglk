@@ -54,7 +54,7 @@ function checkCustomerUpdates() {
             success: function (response) {
                 if (true == response) {
                     alert("Your Details Updated Successfully...!!!");
-                    window.location.href = "index";
+                    window.location.href = "/";
                 } else {
                     document.getElementById("update-message").innerHTML = "Something Went Wrong...!";
                 }
@@ -84,7 +84,7 @@ function alphanumeric(input) {
 
 function cancelUpdateForm() {
 
-    window.location.href = "index";
+    window.location.href = "/";
 }
 
 
@@ -121,7 +121,7 @@ function changePassword() {
             success: function (response) {
                 if (true == response) {
                     alert("Password Changed Successfully...!")
-                    window.location.href = "index";
+                    window.location.href = "/";
                 } else {
                     document.getElementById("change-pw-message").innerHTML = "Login credentials Changing is Invalied";
                 }
@@ -151,7 +151,7 @@ function changeProductStatus(product,status){
             success: function (response) {
                 if (true == response) {
                     alert("Product Status Changed Successfully...!")
-                    window.location.href = "index";
+                    window.location.href = "/";
                 } else {
                 	alert("Product Status Change Unsucsessful...!")
                 }
@@ -162,5 +162,5 @@ function changeProductStatus(product,status){
 
 function cancelChangePassword() {
 
-    window.location.href = "index";
+    window.location.href = "/";
 }

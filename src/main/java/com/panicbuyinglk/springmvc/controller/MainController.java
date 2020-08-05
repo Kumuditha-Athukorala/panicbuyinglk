@@ -30,19 +30,35 @@ public class MainController {
 	ProductService productService;
 
 	@RequestMapping("/")
-	public String viewHomePage() {
+	public String viewHomePage(Model model) {
+		ArrayList<Product> allProducts = (ArrayList<Product>) productService.getActiveProducts();		
+		
+		ArrayList<Product> listOfFruits = new ArrayList<Product>();
+		ArrayList<Product> listOfVegitables = new ArrayList<Product>();
+		ArrayList<Product> listofDiaryProducts = new ArrayList<Product>();
+		
+		for(Product p : allProducts) {
+			if(1 == p.getCategory().getCategoryId()) {
+				listOfFruits.add(p);
+			}else if(2 == p.getCategory().getCategoryId()) {
+				listOfVegitables.add(p);
+			}else if(3 == p.getCategory().getCategoryId()) {
+				listofDiaryProducts.add(p);
+			}			
+		}
+		
+		model.addAttribute("productList", allProducts);
+		model.addAttribute("listOfFruits",listOfFruits);
+		model.addAttribute("listOfVegitables",listOfVegitables);
+		model.addAttribute("listofDiaryProducts",listofDiaryProducts);		
+		
 		return "index";
 	}
 
-	@RequestMapping("/index")
-	public String viewIndexPage() {
-		return "index";
-	}
-
+	
 	@RequestMapping("/register")
 	public String viewRegisterPage(Model model) {
-		ArrayList<UserType> list = (ArrayList<UserType>) userTypeService.getAllUserTypes();
-		
+		ArrayList<UserType> list = (ArrayList<UserType>) userTypeService.getAllUserTypes();		
 		list.remove(2);
 		model.addAttribute("userTypes", list);
 		return "register";
@@ -52,11 +68,6 @@ public class MainController {
 	public String viewLoginPage() {
 		return "user-login";
 	}
-
-	/*
-	 * @RequestMapping("/registerProductPage") public String
-	 * viewProductRegistartionPage() { return "product-register"; }
-	 */
 
 	@RequestMapping("/profile")
 	public String viewProfilePage(HttpServletRequest request, Model model) {

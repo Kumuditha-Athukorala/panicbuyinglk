@@ -47,5 +47,5 @@ function CheckDecimal(input) {
 
 function cancelProductRegistration() {
 
-    window.location.href = "index";
+    window.location.href = "/";
 }

@@ -27,7 +27,7 @@ function checkLoginForm() {
 					dataType : 'json',
 					success : function(response) {
 						if (true == response) {
-							window.location.href = "/index";
+							window.location.href = "/";
 						} else {
 							document.getElementById("login-message").innerHTML = "Invalied Login Credentials...!";
 						}
@@ -38,7 +38,7 @@ function checkLoginForm() {
 }
 
 function cancelLoginForm() {
-	window.location.href = "/index";
+	window.location.href = "/";
 }
 
 function validateEmail(mail) {
