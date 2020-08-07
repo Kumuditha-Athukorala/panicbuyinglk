@@ -1,3 +1,4 @@
+<%@page import="com.panicbuyinglk.springmvc.entity.Category"%>
 <%@page import="org.apache.tomcat.util.codec.binary.Base64"%>
 <%@page import="com.panicbuyinglk.springmvc.entity.Product"%>
 <%@page import="java.util.ArrayList"%>
@@ -151,8 +152,15 @@
 				<div class="form-group">
                 <label for="category">Category:</label>
                 <select class="form-control" id="sel1" name="category" required>
-                    <option value="AAA">AAA</option>
-                    <option value="BBB">BBB</option>
+                
+                <% 
+                ArrayList<Category> catList = (ArrayList<Category>)request.getAttribute("categoryList");
+                
+                for(Category cat:catList){
+                %>
+                    <option value="<%=cat.getCategoryName()%>"><%=cat.getCategoryName() %></option>
+                    
+                <% } %>
                 </select>
             </div>
             

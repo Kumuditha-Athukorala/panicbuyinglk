@@ -12,46 +12,34 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.panicbuyinglk.springmvc.entity.Category;
 import com.panicbuyinglk.springmvc.entity.Product;
 import com.panicbuyinglk.springmvc.entity.User;
 import com.panicbuyinglk.springmvc.entity.UserType;
+import com.panicbuyinglk.springmvc.service.CategoryService;
 import com.panicbuyinglk.springmvc.service.ProductService;
 import com.panicbuyinglk.springmvc.service.UserTypeService;
+import com.panicbuyinglk.springmvc.serviceimpl.ProductSeviceImpl;
 
 @Controller
 public class MainController {
-
-	private static final Logger logger = LogManager.getLogger(MainController.class.getName());
 	
 	@Autowired
 	UserTypeService userTypeService;
 	
 	@Autowired
 	ProductService productService;
+	
+	@Autowired
+	ProductSeviceImpl productSeviceImpl;
+	
+	@Autowired
+	CategoryService categoryService;
 
 	@RequestMapping("/")
 	public String viewHomePage(Model model) {
-		ArrayList<Product> allProducts = (ArrayList<Product>) productService.getActiveProducts();		
-		
-		ArrayList<Product> listOfFruits = new ArrayList<Product>();
-		ArrayList<Product> listOfVegitables = new ArrayList<Product>();
-		ArrayList<Product> listofDiaryProducts = new ArrayList<Product>();
-		
-		for(Product p : allProducts) {
-			if(1 == p.getCategory().getCategoryId()) {
-				listOfFruits.add(p);
-			}else if(2 == p.getCategory().getCategoryId()) {
-				listOfVegitables.add(p);
-			}else if(3 == p.getCategory().getCategoryId()) {
-				listofDiaryProducts.add(p);
-			}			
-		}
-		
-		model.addAttribute("productList", allProducts);
-		model.addAttribute("listOfFruits",listOfFruits);
-		model.addAttribute("listOfVegitables",listOfVegitables);
-		model.addAttribute("listofDiaryProducts",listofDiaryProducts);		
-		
+				
+		productSeviceImpl.loadIndexproducts(model);
 		return "index";
 	}
 
@@ -87,7 +75,9 @@ public class MainController {
 			case 2:
 				page = "profile-seller";
 				ArrayList<Product> prdList = (ArrayList<Product>) productService.getProductsByUser(loggeduser);
+				ArrayList<Category> catList = (ArrayList<Category>) categoryService.getAllproductCategories();
 				model.addAttribute("userProductList", prdList);
+				model.addAttribute("categoryList",catList);
 				break;
 			
 			case 3:

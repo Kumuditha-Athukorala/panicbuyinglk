@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.panicbuyinglk.springmvc.entity.Category;
 import com.panicbuyinglk.springmvc.entity.Product;
@@ -68,4 +69,28 @@ public class ProductSeviceImpl {
 		
 	}
 	
+	public void loadIndexproducts(Model model) {
+		
+		ArrayList<Product> allProducts = (ArrayList<Product>) productService.getActiveProducts();		
+		
+		ArrayList<Product> listOfFruits = new ArrayList<Product>();
+		ArrayList<Product> listOfVegitables = new ArrayList<Product>();
+		ArrayList<Product> listofDiaryProducts = new ArrayList<Product>();
+		
+		for(Product p : allProducts) {
+			if(1 == p.getCategory().getCategoryId()) {
+				listOfFruits.add(p);
+			}else if(2 == p.getCategory().getCategoryId()) {
+				listOfVegitables.add(p);
+			}else if(3 == p.getCategory().getCategoryId()) {
+				listofDiaryProducts.add(p);
+			}			
+		}
+		
+		model.addAttribute("productList", allProducts);
+		model.addAttribute("listOfFruits",listOfFruits);
+		model.addAttribute("listOfVegitables",listOfVegitables);
+		model.addAttribute("listofDiaryProducts",listofDiaryProducts);
+	}
+
 }

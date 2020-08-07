@@ -1,5 +1,7 @@
 package com.panicbuyinglk.springmvc.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.logging.log4j.LogManager;
@@ -7,16 +9,20 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.panicbuyinglk.springmvc.entity.Product;
 import com.panicbuyinglk.springmvc.entity.User;
 import com.panicbuyinglk.springmvc.logger.PanicbuyingLKLogger;
 import com.panicbuyinglk.springmvc.pojo.Logindata;
 import com.panicbuyinglk.springmvc.pojo.RegisterData;
+import com.panicbuyinglk.springmvc.service.ProductService;
 import com.panicbuyinglk.springmvc.service.UserService;
+import com.panicbuyinglk.springmvc.serviceimpl.ProductSeviceImpl;
 import com.panicbuyinglk.springmvc.serviceimpl.UserServiceImpl;
 
 @Controller
@@ -29,6 +35,12 @@ public class UserController {
 
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	ProductService productService;
+	
+	@Autowired
+	ProductSeviceImpl productSeviceImpl;
 
 	Boolean succsess = true;
 	Boolean error = false;
@@ -142,9 +154,10 @@ public class UserController {
 	
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public String destroySession(HttpServletRequest request) {
+	public String destroySession(HttpServletRequest request, Model model) {
 
 		request.getSession().invalidate();
+		productSeviceImpl.loadIndexproducts(model);
 		return "index";
 	}
 
