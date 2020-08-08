@@ -2,8 +2,6 @@ package com.panicbuyinglk.springmvc.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -14,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.panicbuyinglk.springmvc.entity.User;
-import com.panicbuyinglk.springmvc.logger.PanicbuyingLKLogger;
 import com.panicbuyinglk.springmvc.pojo.Logindata;
 import com.panicbuyinglk.springmvc.pojo.RegisterData;
 import com.panicbuyinglk.springmvc.service.ProductService;

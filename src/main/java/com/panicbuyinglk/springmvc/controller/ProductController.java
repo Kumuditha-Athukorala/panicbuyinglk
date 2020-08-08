@@ -5,8 +5,6 @@ import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -20,7 +18,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.panicbuyinglk.springmvc.entity.Product;
 import com.panicbuyinglk.springmvc.entity.User;
-import com.panicbuyinglk.springmvc.logger.PanicbuyingLKLogger;
 import com.panicbuyinglk.springmvc.pojo.ProductData;
 import com.panicbuyinglk.springmvc.serviceimpl.ProductSeviceImpl;
 
