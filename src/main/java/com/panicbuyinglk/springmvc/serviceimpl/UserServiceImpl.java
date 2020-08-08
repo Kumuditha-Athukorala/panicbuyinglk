@@ -52,7 +52,8 @@ public class UserServiceImpl {
 			return savedUser;
 
 		} catch (Exception e) {
-			e.printStackTrace();			
+			String error = lkLogger.writeErrorLogRecord(e).toString();			
+			logger.debug(error);
 			return null;
 		}
 
@@ -66,9 +67,7 @@ public class UserServiceImpl {
 		try {
 			User loggedUser = userService.getLoggedUser(username, password);			
 			return loggedUser;
-
 		} catch (Exception e) {
-
 			String error = lkLogger.writeErrorLogRecord(e).toString();			
 			logger.debug(error);
 			return null;
@@ -89,8 +88,9 @@ public class UserServiceImpl {
 			return userService.saveUser(u);
 
 		} catch (Exception e) {
-			e.printStackTrace();
-			return new User();
+			String error = lkLogger.writeErrorLogRecord(e).toString();			
+			logger.debug(error);
+			return null;
 		}
 
 	}
@@ -101,8 +101,9 @@ public class UserServiceImpl {
 			u.setPassword(logindata.getPassword());
 			return userService.saveUser(u);
 		} catch (Exception e) {
-			e.printStackTrace();
-			return new User();
+			String error = lkLogger.writeErrorLogRecord(e).toString();			
+			logger.debug(error);
+			return null;
 		}
 	}
 
