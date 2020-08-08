@@ -1,19 +1,27 @@
 package com.panicbuyinglk.springmvc.serviceimpl;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.panicbuyinglk.springmvc.entity.User;
 import com.panicbuyinglk.springmvc.entity.UserType;
+import com.panicbuyinglk.springmvc.logger.PanicbuyingLKLogger;
 import com.panicbuyinglk.springmvc.pojo.Logindata;
 import com.panicbuyinglk.springmvc.pojo.RegisterData;
 import com.panicbuyinglk.springmvc.service.UserService;
 
 @Service
 public class UserServiceImpl {
-
+	
+	PanicbuyingLKLogger  lkLogger = new PanicbuyingLKLogger();
+	
+	final static Logger logger = LogManager.getLogger(UserServiceImpl.class);
+	
 	@Autowired
 	UserService userService;
+
 
 	public User saveUser(RegisterData registerData) {
 
@@ -37,11 +45,15 @@ public class UserServiceImpl {
 				ut.setType(registerData.getUtype());
 			}
 			user.setUserType(ut);
-			return userService.saveUser(user);
+			User savedUser = userService.saveUser(user);
+			
+			String message = lkLogger.writeUserLogRecord(savedUser).toString();
+			logger.debug(message);
+			return savedUser;
 
 		} catch (Exception e) {
-			e.printStackTrace();
-			return new User();
+			e.printStackTrace();			
+			return null;
 		}
 
 	}
@@ -52,13 +64,14 @@ public class UserServiceImpl {
 		String password = logindata.getPassword();
 
 		try {
-
-			User loggedUser = userService.getLoggedUser(username, password);
+			User loggedUser = userService.getLoggedUser(username, password);			
 			return loggedUser;
 
 		} catch (Exception e) {
-			e.printStackTrace();
-			return new User();
+
+			String error = lkLogger.writeErrorLogRecord(e).toString();			
+			logger.debug(error);
+			return null;
 		}
 
 	}
@@ -85,15 +98,13 @@ public class UserServiceImpl {
 	public User updatePaasword(User u, Logindata logindata) {
 		
 		try {
-
 			u.setPassword(logindata.getPassword());
-
 			return userService.saveUser(u);
-
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new User();
 		}
 	}
 
+	
 }

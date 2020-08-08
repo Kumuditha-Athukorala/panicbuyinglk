@@ -2,12 +2,15 @@ package com.panicbuyinglk.springmvc.serviceimpl;
 
 import java.util.ArrayList;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.panicbuyinglk.springmvc.entity.Category;
 import com.panicbuyinglk.springmvc.entity.Product;
+import com.panicbuyinglk.springmvc.logger.PanicbuyingLKLogger;
 import com.panicbuyinglk.springmvc.pojo.ProductData;
 import com.panicbuyinglk.springmvc.service.CategoryService;
 import com.panicbuyinglk.springmvc.service.ProductService;
@@ -15,14 +18,17 @@ import com.panicbuyinglk.springmvc.service.ProductService;
 @Service
 public class ProductSeviceImpl {
 	
+	PanicbuyingLKLogger  lkLogger = new PanicbuyingLKLogger();
+	
+	final static Logger logger = LogManager.getLogger(ProductSeviceImpl.class);
+	
 	@Autowired
 	ProductService productService;
 	
 	@Autowired
 	CategoryService  categoryService;
 	
-	public Product saveProduct(ProductData productData) {
-		
+	public Product saveProduct(ProductData productData) {		
 		
 		Product product = new Product();
 		Category category = new Category();
@@ -34,8 +40,7 @@ public class ProductSeviceImpl {
 		product.setDescription(productData.getDescription());
 		product.setStatus(productData.getStatus());
 		product.setRegisteredDate(productData.getRegisterDate());
-		product.setRegisterUser(productData.getRegisteredUser());
-		
+		product.setRegisterUser(productData.getRegisteredUser());		
 		
 		ArrayList<Category>  productCategories =  (ArrayList<Category>) categoryService.getAllproductCategories();
 		
@@ -46,11 +51,13 @@ public class ProductSeviceImpl {
 				break;
 			}
 		}
-						
-		product.setCategory(category);
+		product.setCategory(category);	
 		
-		return productService.saveProduct(product);
+		Product savedProduct = productService.saveProduct(product);
+		String message = lkLogger.writeProductLogRecord(savedProduct,productData).toString();
+		logger.debug(message);			
 		
+		return 	savedProduct;
 	}
 
 	public Product updateProductStatus(ProductData prData) {
@@ -63,10 +70,8 @@ public class ProductSeviceImpl {
 			p.setStatus(0);
 		}
 		
-		Product updatedProduct= productService.saveProduct(p);
-		
-		return updatedProduct;
-		
+		Product updatedProduct= productService.saveProduct(p);		
+		return updatedProduct;		
 	}
 	
 	public void loadIndexproducts(Model model) {
