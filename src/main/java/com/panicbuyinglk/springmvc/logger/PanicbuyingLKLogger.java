@@ -165,7 +165,7 @@ public class PanicbuyingLKLogger {
 	    String[] lines = writer.toString().split("\n");
 	    StringBuilder sb = new StringBuilder();
 	    for (int i = 0; i < Math.min(lines.length, maxLines); i++) {
-	        sb.append(lines[i]).append("\n");
+	        sb.append(lines[i]).append("-");
 	    }
 	    return sb.toString();
 	}

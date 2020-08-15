@@ -53,7 +53,7 @@ public class ProductSeviceImpl {
 					break;
 				}
 			}
-			//product.setCategory(category);
+			product.setCategory(category);
 
 			Product savedProduct = productService.saveProduct(product);
 			String message = lkLogger.writeProductLogRecord(savedProduct, productData).toString();

@@ -1,4 +1,4 @@
-	<%@page import="org.apache.tomcat.util.codec.binary.Base64"%>
+<%@page import="org.apache.tomcat.util.codec.binary.Base64"%>
 <%@page import="com.panicbuyinglk.springmvc.entity.Product"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.panicbuyinglk.springmvc.service.ProductService"%>
@@ -55,6 +55,7 @@
 					</div>
 					<% 
 					if(i >= 4){
+						i=0;
 					%>
 					<div class="w-100"></div>
 					<% } %>
@@ -86,6 +87,7 @@
 					</div>
 					<% 
 					if(j >= 4){
+						j =0;
 					%>
 					<div class="w-100"></div>
 					<% } %>
@@ -117,6 +119,7 @@
 					</div>
 					<% 
 					if(k >= 4){
+						k = 0;
 					%>
 					<div class="w-100"></div>
 					<% } %>
@@ -149,6 +152,7 @@
 					</div>
 					<% 
 					if(l >= 4){
+						l = 0;
 					%>
 					<div class="w-100"></div>
 					<% } %>

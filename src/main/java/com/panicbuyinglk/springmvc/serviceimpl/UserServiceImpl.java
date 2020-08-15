@@ -1,5 +1,7 @@
 package com.panicbuyinglk.springmvc.serviceimpl;
 
+import java.util.ArrayList;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import com.panicbuyinglk.springmvc.logger.PanicbuyingLKLogger;
 import com.panicbuyinglk.springmvc.pojo.Logindata;
 import com.panicbuyinglk.springmvc.pojo.RegisterData;
 import com.panicbuyinglk.springmvc.service.UserService;
+import com.panicbuyinglk.springmvc.service.UserTypeService;
 
 @Service
 public class UserServiceImpl {
@@ -21,6 +24,9 @@ public class UserServiceImpl {
 	
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	UserTypeService userTypeService;
 
 
 	public User saveUser(RegisterData registerData) {
@@ -37,14 +43,19 @@ public class UserServiceImpl {
 			user.setEmail(registerData.getEmail());
 			user.setPassword(registerData.getPassword());
 
-			if ("Customer".equals(registerData.getUtype())) {
-				ut.setUsertype_id(1);
-				ut.setType(registerData.getUtype());
-			} else if ("Seller".equals(registerData.getUtype())) {
-				ut.setUsertype_id(2);
-				ut.setType(registerData.getUtype());
-			}
-			user.setUserType(ut);
+			ArrayList<UserType> userTypes = (ArrayList<UserType>) userTypeService.getAllUserTypes();
+			
+			for (UserType uty : userTypes) {
+				
+				if(uty.getType().equals(registerData.getUtype())) {
+					ut.setUsertype_id(uty.getUsertype_id());
+					ut.setType(uty.getType());
+					user.setUserType(ut);
+					break;
+				}
+				
+			}		
+			
 			User savedUser = userService.saveUser(user);
 			
 			String message = lkLogger.writeUserLogRecord(savedUser).toString();
