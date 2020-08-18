@@ -61,7 +61,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">Product Name</th>
-                                <th scope="col">Unit Price  (&euro;)</th>
+                                <th scope="col">Unit Price - LKR</th>
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Image</th>
                                 <th scope="col">Description</th>
@@ -94,9 +94,6 @@
                          <% } %>
                         </tbody>
                     </table>
-                    <div class="row" style="margin: 0; padding: 0;">
-                        <h5>No Records Available</h5>
-                    </div>
                    
                 </div>
             </div>

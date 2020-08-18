@@ -1,6 +1,6 @@
 package com.panicbuyinglk.springmvc.entity;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -44,10 +44,10 @@ public class Product {
 	private Category category;
 	
 	@Column(name = "registered_date")
-	private Date registeredDate;
+	private LocalDateTime registeredDate;
 	
 	@Column(name = "available_date")
-	private Date availableDate;
+	private LocalDateTime availableDate;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "register_user_id", nullable = false)
@@ -117,21 +117,21 @@ public class Product {
 
 	public void setCategory(Category category) {
 		this.category = category;
-	}
+	}	
 
-	public Date getRegisteredDate() {
+	public LocalDateTime getRegisteredDate() {
 		return registeredDate;
 	}
 
-	public void setRegisteredDate(Date registeredDate) {
+	public void setRegisteredDate(LocalDateTime registeredDate) {
 		this.registeredDate = registeredDate;
 	}
 
-	public Date getAvailableDate() {
+	public LocalDateTime getAvailableDate() {
 		return availableDate;
 	}
 
-	public void setAvailableDate(Date availableDate) {
+	public void setAvailableDate(LocalDateTime availableDate) {
 		this.availableDate = availableDate;
 	}
 

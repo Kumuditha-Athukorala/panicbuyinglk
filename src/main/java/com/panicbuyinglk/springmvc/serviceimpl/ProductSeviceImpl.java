@@ -1,5 +1,6 @@
 package com.panicbuyinglk.springmvc.serviceimpl;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 import org.apache.logging.log4j.LogManager;
@@ -41,7 +42,7 @@ public class ProductSeviceImpl {
 			product.setImage(productData.getImage());
 			product.setDescription(productData.getDescription());
 			product.setStatus(productData.getStatus());
-			product.setRegisteredDate(productData.getRegisterDate());
+			product.setRegisteredDate(LocalDateTime.now());
 			product.setRegisterUser(productData.getRegisteredUser());
 
 			ArrayList<Category> productCategories = (ArrayList<Category>) categoryService.getAllproductCategories();
@@ -75,8 +76,10 @@ public class ProductSeviceImpl {
 
 			if (0 == prData.getStatus()) {
 				p.setStatus(1);
+				p.setAvailableDate(LocalDateTime.now());
 			} else if (1 == prData.getStatus()) {
 				p.setStatus(0);
+				p.setAvailableDate(null);				
 			}
 
 			Product updatedProduct = productService.saveProduct(p);
@@ -98,6 +101,7 @@ public class ProductSeviceImpl {
 			ArrayList<Product> listOfFruits = new ArrayList<Product>();
 			ArrayList<Product> listOfVegitables = new ArrayList<Product>();
 			ArrayList<Product> listofDiaryProducts = new ArrayList<Product>();
+			ArrayList<Product> listofGrocery = new ArrayList<Product>();
 
 			for (Product p : allProducts) {
 				if (1 == p.getCategory().getCategoryId()) {
@@ -106,6 +110,8 @@ public class ProductSeviceImpl {
 					listOfVegitables.add(p);
 				} else if (3 == p.getCategory().getCategoryId()) {
 					listofDiaryProducts.add(p);
+				} else if (4 == p.getCategory().getCategoryId()) {
+					listofGrocery.add(p);
 				}
 			}
 
@@ -113,6 +119,7 @@ public class ProductSeviceImpl {
 			model.addAttribute("listOfFruits", listOfFruits);
 			model.addAttribute("listOfVegitables", listOfVegitables);
 			model.addAttribute("listofDiaryProducts", listofDiaryProducts);
+			model.addAttribute("listofGrocery", listofGrocery);
 			
 		} catch (Exception e) {
 			String error = lkLogger.writeErrorLogRecord(e).toString();			

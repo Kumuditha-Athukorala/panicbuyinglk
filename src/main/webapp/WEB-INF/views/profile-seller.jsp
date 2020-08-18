@@ -61,7 +61,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">Product Name</th>
-                                <th scope="col">Unit Price</th>
+                                <th scope="col">Unit Price - LKR</th>
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Image</th>
                                 <th scope="col">Description </th>
@@ -292,6 +292,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
         </div>
 </div>

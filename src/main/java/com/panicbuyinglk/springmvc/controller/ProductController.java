@@ -1,7 +1,6 @@
 package com.panicbuyinglk.springmvc.controller;
 
 import java.io.IOException;
-import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -47,14 +46,12 @@ public class ProductController {
 		productData.setCategory(request.getParameter("category"));		
 		productData.setStatus(0);
 		productData.setRegisteredUser(user);
-		productData.setRegisterDate(new Date());
 	
 		Product savedProduct = productSeviceImpl.saveProduct(productData);
 		productSeviceImpl.loadIndexproducts(model);
 		
 		
-		if (null != savedProduct) {			
-			
+		if (null != savedProduct) {					
 			return "index";
 		} else {
 			return "index";
