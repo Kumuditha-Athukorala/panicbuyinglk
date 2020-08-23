@@ -1,6 +1,7 @@
 package com.panicbuyinglk.springmvc.serviceimpl;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import org.apache.logging.log4j.LogManager;
@@ -32,7 +33,8 @@ public class ProductSeviceImpl {
 	public Product saveProduct(ProductData productData) {
 
 		try {
-
+			String processedTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+			
 			Product product = new Product();
 			Category category = new Category();
 
@@ -42,7 +44,7 @@ public class ProductSeviceImpl {
 			product.setImage(productData.getImage());
 			product.setDescription(productData.getDescription());
 			product.setStatus(productData.getStatus());
-			product.setRegisteredDate(LocalDateTime.now());
+			product.setRegisteredDate(processedTime);
 			product.setRegisterUser(productData.getRegisteredUser());
 
 			ArrayList<Category> productCategories = (ArrayList<Category>) categoryService.getAllproductCategories();
@@ -71,12 +73,12 @@ public class ProductSeviceImpl {
 	public Product updateProductStatus(ProductData prData) {
 
 		try {
-
+			String processedTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 			Product p = productService.getProdutById(prData.getProductId());
 
 			if (0 == prData.getStatus()) {
 				p.setStatus(1);
-				p.setAvailableDate(LocalDateTime.now());
+				p.setAvailableDate(processedTime);
 			} else if (1 == prData.getStatus()) {
 				p.setStatus(0);
 				p.setAvailableDate(null);				

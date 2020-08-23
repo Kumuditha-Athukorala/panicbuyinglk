@@ -44,10 +44,10 @@ public class Product {
 	private Category category;
 	
 	@Column(name = "registered_date")
-	private LocalDateTime registeredDate;
+	private String registeredDate;
 	
 	@Column(name = "available_date")
-	private LocalDateTime availableDate;
+	private String availableDate;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "register_user_id", nullable = false)
@@ -119,19 +119,21 @@ public class Product {
 		this.category = category;
 	}	
 
-	public LocalDateTime getRegisteredDate() {
+
+
+	public String getRegisteredDate() {
 		return registeredDate;
 	}
 
-	public void setRegisteredDate(LocalDateTime registeredDate) {
+	public void setRegisteredDate(String registeredDate) {
 		this.registeredDate = registeredDate;
 	}
 
-	public LocalDateTime getAvailableDate() {
+	public String getAvailableDate() {
 		return availableDate;
 	}
 
-	public void setAvailableDate(LocalDateTime availableDate) {
+	public void setAvailableDate(String availableDate) {
 		this.availableDate = availableDate;
 	}
 

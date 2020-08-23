@@ -13,6 +13,7 @@
 	<artifactId>panicbuyinglk</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>panicbuyinglk</name>
+	<packaging>war</packaging>
 	<description>Panicbuyinglk for Spring Boot</description>
 
 	<properties>
