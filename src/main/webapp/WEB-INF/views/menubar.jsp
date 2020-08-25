@@ -24,8 +24,8 @@
 			<%
 				}
 			%>
-			<li class="nav-item"><a href="#" class="nav-link">Products</a></li>
-			<li class="nav-item"><a href="#" class="nav-link">Cart</a></li>
+			<!-- <li class="nav-item"><a href="#" class="nav-link">Products</a></li>
+			<li class="nav-item"><a href="#" class="nav-link">Cart</a></li> -->
 		</ul>
 	</div>
 </nav>
